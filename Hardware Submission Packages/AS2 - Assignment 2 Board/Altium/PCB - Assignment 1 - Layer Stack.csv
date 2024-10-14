@@ -1,0 +1,40 @@
+﻿Board Layer Stack
+Number,Name,Type,Manufacturer,Material,Process,Thickness (mm),Weight (oz),Dk,Df,Orientation,Copper Orientation,Description,Constructions,Resin (%),Frequency (GHz),GlassTransTemp (°C)
+,Top Overlay,Overlay,,,,,,,,,,,,,,
+,Top Solder Mask,Solder Mask,,Solder Resist,,0.03048,,3.8,,,,,,,,
+1,Signal Layer 1,Signal,,,,0.035,1,,,Top,Above,,,,,
+,Dielectric 1,Prepreg,Altium Designer,7628,,0.2104,,4.4,0.02,,,,1080,62,1,180
+2,Top GND,Signal,Altium Designer,CF-004,ED,0.0152,0.5,,,Not allowed,Above,Copper Foil,,,,
+,Core,Dielectric,,FR-4,,1.065,,4.6,,,,,,,,
+3,Bottom GND,Signal,Altium Designer,CF-004,ED,0.0152,0.5,,,Not allowed,Below,Copper Foil,,,,
+,Dielectric 2,Prepreg,Altium Designer,7628,,0.2104,,4.4,0.02,,,,1080,62,1,180
+4,Signal Layer 2,Signal,,,,0.035,1,,,Bottom,Below,,,,,
+,Bottom Solder Mask,Solder Mask,,Solder Resist,,0.03048,,3.8,,,,,,,,
+,Bottom Overlay,Overlay,,,,,,,,,,,,,,
+
+
+Impedances
+#,Target impedance (Ω),Type,Trace layer,Calculated impedance (Ω),Trace width (mm),Gap (mm),Reference layers,Stack
+1,50,Single,Signal Layer 1,49.986,0.34709,,Top GND,Board Layer Stack
+
+2,50,Single,Signal Layer 2,49.986,0.34709,,Bottom GND,Board Layer Stack
+
+3,75,Single,Signal Layer 2,75.0179,0.13116,,Bottom GND,Board Layer Stack
+
+4,75,Single,Signal Layer 1,75.0179,0.13116,,Top GND,Board Layer Stack
+
+5,100,Diff pair,Signal Layer 1,100.0484,0.14035,0.127,Top GND,Board Layer Stack
+
+6,100,Diff pair,Top GND,99.9619,0.11032,0.127,Signal Layer 1;Bottom GND,Board Layer Stack
+
+7,100,Diff pair,Bottom GND,99.9619,0.11032,0.127,Top GND;Signal Layer 2,Board Layer Stack
+
+8,100,Diff pair,Signal Layer 2,100.0484,0.14035,0.127,Bottom GND,Board Layer Stack
+
+
+Via types
+#,Name,Type,Layers,Stack
+1,Thru 1:4,Thru,Signal Layer 1-Signal Layer 2,Board Layer Stack
+
+
+No back drills
